@@ -3,3 +3,9 @@
   <%= @user.token %><br>
   <%= @user.username if @user.username %>
 </div>
+
+<%= form_for @user do |f| %>
+  <%= f.label "Pick a username:" %>
+  <%= f.text_field(:username) %>
+  <%= f.submit %>
+<% end %>
