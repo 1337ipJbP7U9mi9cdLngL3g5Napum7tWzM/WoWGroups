@@ -1,0 +1,41 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  private: 1
+  private_url: MyString
+  levels: 1
+  group_size: 1
+  group_tanks: 1
+  groups_heals: 1
+  group_dps: 1
+  group_accepted: 1
+  group_declined: 1
+  group_reserves: 1
+  server: MyString
+  region: MyString
+  faction: 1
+  faction_cross: 1
+  description: MyText
+  short_description: MyText
+  active: 1
+
+two:
+  type: 
+  private: 1
+  private_url: MyString
+  levels: 1
+  group_size: 1
+  group_tanks: 1
+  groups_heals: 1
+  group_dps: 1
+  group_accepted: 1
+  group_declined: 1
+  group_reserves: 1
+  server: MyString
+  region: MyString
+  faction: 1
+  faction_cross: 1
+  description: MyText
+  short_description: MyText
+  active: 1

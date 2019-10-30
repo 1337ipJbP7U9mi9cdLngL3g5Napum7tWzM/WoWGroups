@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SigninControllerTest < ActionDispatch::IntegrationTest
+class ServerTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
