@@ -1,4 +1,4 @@
-<div class="" data-controller="hello">
+<div class="">
   <% if @user %>
     <h4><%= @user.username%></h4>
     <a href="/logout">Logout</a>
@@ -6,3 +6,47 @@
     <a href="/auth/bnet">Sign In</a>
   <% end %>
 </div>
+
+<%= form_with url: search_groups_path do %>
+<div data-controller="home-page--servers-select">
+
+    <div class="field">
+      <p class="control has-icons-left">
+        <span class="select">
+          <select name="region" id="region_id"
+            data-action="change->home-page--servers-select#regionSelect"
+            data-target="home-page--servers-select.regionSelected">
+            <% @regions.each do |region| %>
+              <option value="<%= region.id %>">
+                <%= region.name %>
+              </option>
+            <% end %>
+          </select>
+        </span>
+        <span class="icon is-small is-left">
+          <i class="fas fa-globe"></i>
+        </span>
+      </p>
+    </div>
+
+    <div class="field">
+      <p class="control has-icons-left">
+        <span class="select">
+          <select name="server" id="server_id"
+            data-target="home-page--servers-select.serverRegion">
+            <%= render 'servers/server_options' %>
+          </select>
+        </span>
+        <span class="icon is-small is-left">
+          <i class="fas fa-server"
+            data-target="home-page--servers-select.serverIcon"></i>
+        </span>
+      </p>
+    </div>
+
+    <div class="control">
+      <%= submit_tag "Submit", class: "button is-primary" %>
+    </div>
+
+  </div>
+<% end %>

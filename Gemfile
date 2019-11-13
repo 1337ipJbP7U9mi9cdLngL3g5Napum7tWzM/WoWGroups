@@ -21,6 +21,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'omniauth', '~> 1.3', '>= 1.3.1'
 gem 'omniauth-bnet', '~> 2.0'
 
+# gem 'mechanize', '~> 2.7', '>= 2.7.4'
 gem 'watir', '~> 6.16', '>= 6.16.5'
 
 gem 'pg'
