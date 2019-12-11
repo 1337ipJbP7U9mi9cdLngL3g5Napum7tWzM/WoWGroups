@@ -5,9 +5,6 @@ class HomeController < ApplicationController
     @user = current_user if current_user
     @regions = Region.all
     @servers = Server.where(region_id: 1).order(:name)
-    # @servers_europe = Server.where(region_id: 2)
-    # @servers_korea = Server.where(region_id: 3)
-    # @servers_taiwan = Server.where(region_id: 4)
   end
 
   def search

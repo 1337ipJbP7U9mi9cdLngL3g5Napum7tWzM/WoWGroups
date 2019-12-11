@@ -1,0 +1,145 @@
+<%= form_with model: @group do %>
+<div data-controller="home-page--servers-select">
+  <div class="columns">
+    <div class="field column has-addons has-addons-centered">
+      <p class="control has-icons-left">
+        <span class="select">
+          <select name="region" id="region_id"
+            data-action="change->home-page--servers-select#regionSelect"
+            data-target="home-page--servers-select.regionSelected">
+            <% @regions.each do |region| %>
+              <option value="<%= region.id %>">
+                <%= region.name %>
+              </option>
+            <% end %>
+          </select>
+        </span>
+        <span class="icon is-small is-left">
+          <i class="fas fa-globe"></i>
+        </span>
+      </p>
+    </div>
+
+    <div class="field column has-addons has-addons-centered">
+      <p class="control has-icons-left">
+        <span class="select">
+          <select name="server" id="server_id"
+            data-target="home-page--servers-select.serverRegion">
+            <%= render 'servers/server_options' %>
+          </select>
+        </span>
+        <span class="icon is-small is-left">
+          <i class="fas fa-server"
+          data-target="home-page--servers-select.serverIcon"></i>
+        </span>
+      </p>
+    </div>
+
+    <div class="field column">
+        <p class="control">
+          <span class="select">
+            <select name="type" id="type">
+              <option value="dungeon">
+                Dungeon
+              </option>
+              <option value="raid">
+                Raid
+              </option>
+              <option value="pvp">
+                PvP
+              </option>
+              <option value="custom">
+                Custom
+              </option>
+            </select>
+          </span>
+        </p>
+    </div>
+    <div class="column private-url">
+      <label class="checkbox">
+        <input type="checkbox" name="private_url" value="1">
+        Private Group?
+      </label>
+    </div>
+  </div>
+
+
+  <div class="columns">
+    <div class="column">
+      <div class="" id="levels"
+        data-controller="groups--level-slider">
+
+        <input type="hidden" name="levels" value=""
+          data-target="groups--level-slider.levels">
+      </div>
+      <label for="levels">Levels Allowed:</label>
+    </div>
+
+    <div class="column">
+      <div class="" id="group_size"
+        data-controller="groups--group-size"
+        data-action="groups--group-size#update">
+
+        <input type="hidden" name="group_size" value=""
+          data-target="groups--group-size.size">
+      </div>
+      <label for="group_size">Group Size:</label>
+    </div>
+  </div>
+
+  <div class="columns" data-controller="groups--group-roles">
+    <div class="column">
+      <div class="" id="group_roles">
+
+        <input type="hidden" name="group_roles_amounts" value=""
+          data-target="groups--group-roles.groupRolesAmounts">
+      </div>
+      <label for="group_roles"># DO role's numbers here</label>
+    </div>
+  </div>
+
+  <div class="control">
+    <label class="radio">
+      <input type="radio" name="faction" value="horde">
+      Horde
+    </label>
+    <label class="radio">
+      <input type="radio" name="faction" value="alliance">
+      Alliance
+    </label>
+  </div>
+
+  <div class="control">
+    <label class="radio">
+      <input type="radio" name="faction_cross">
+      Allow Horde?
+    </label>
+    <label class="radio">
+      <input type="radio" name="faction_cross">
+      Allow Alliance?
+    </label>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <textarea name="short_description" class="textarea" placeholder="Short Description"></textarea>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <%= form.hidden_field :description, value: @group.description, id: "trix" %>
+      <trix-editor input="trix" data-controller=""
+        <!-- data-action="trix-change->" -->
+        class="trix_editor">
+      </trix-editor>
+    </div>
+  </div>
+
+  <div class="control">
+    <%= submit_tag "Submit", class: "button is-primary" %>
+  </div>
+
+</div>
+
+<% end %>
