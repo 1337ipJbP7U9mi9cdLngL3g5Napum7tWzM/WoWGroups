@@ -11,17 +11,17 @@ class SessionsController < ApplicationController
 
     if user != nil && user.username != nil
       user.update!(token: token)
-      session[:user_id] = user_id
+      session[:user_id] = user.id
       redirect_to root_path
     elsif user.nil?
       user = User.create do |x|
         x.guid = user_id
         x.token = token
       end
-      session[:user_id] = user_id
+      session[:user_id] = user.id
       redirect_to edit_user_path(user)
     else
-      session[:user_id] = user_id
+      session[:user_id] = user.id
       redirect_to edit_user_path(user)
     end
   end

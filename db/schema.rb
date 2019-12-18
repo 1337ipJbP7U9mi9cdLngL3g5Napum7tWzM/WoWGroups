@@ -48,22 +48,22 @@ ActiveRecord::Schema.define(version: 2019_10_30_190106) do
 
   create_table "groups", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "type"
-    t.integer "private"
+    t.string "group_type"
+    t.boolean "private", default: false, null: false
     t.string "private_url"
     t.integer "levels", array: true
     t.integer "group_size"
     t.integer "group_tanks"
-    t.integer "groups_heals"
+    t.integer "group_heals"
     t.integer "group_dps"
     t.integer "group_accepted", array: true
     t.integer "group_declined", array: true
     t.integer "group_reserves", array: true
     t.bigint "server_id"
     t.integer "faction"
-    t.integer "faction_cross"
-    t.text "short_description"
-    t.integer "active"
+    t.boolean "faction_cross", default: false, null: false
+    t.string "short_description"
+    t.boolean "active", default: false, null: false
     t.datetime "time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

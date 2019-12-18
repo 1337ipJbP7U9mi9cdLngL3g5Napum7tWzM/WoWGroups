@@ -11,7 +11,7 @@ export default class extends Controller {
         connect: [ true, true, true, false],
         range: {
             'min': 0,
-            '50%': 5,
+            '40%': 5,
             'max': 40
         },
         // pips: {mode: 'count', values: 5},

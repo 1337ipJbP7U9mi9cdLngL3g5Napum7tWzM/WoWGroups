@@ -1,7 +1,7 @@
-<%= form_with model: @group do %>
+<%= form_with model: @group, local: true do |form| %>
 <div data-controller="home-page--servers-select">
   <div class="columns">
-    <div class="field column has-addons has-addons-centered">
+    <div class="field column has-addons has-addons-centered vertical-center-content">
       <p class="control has-icons-left">
         <span class="select">
           <select name="region" id="region_id"
@@ -20,7 +20,7 @@
       </p>
     </div>
 
-    <div class="field column has-addons has-addons-centered">
+    <div class="field column has-addons has-addons-centered vertical-center-content">
       <p class="control has-icons-left">
         <span class="select">
           <select name="server" id="server_id"
@@ -35,7 +35,7 @@
       </p>
     </div>
 
-    <div class="field column">
+    <div class="field column has-addons has-addons-centered vertical-center-content">
         <p class="control">
           <span class="select">
             <select name="type" id="type">
@@ -55,16 +55,17 @@
           </span>
         </p>
     </div>
-    <div class="column private-url">
+    <div class="column private">
       <label class="checkbox">
-        <input type="checkbox" name="private_url" value="1">
+        <input type="checkbox" name="private">
         Private Group?
       </label>
+      <input name="private_url" class="input" type="text" placeholder="Password for Custom Group">
     </div>
   </div>
 
 
-  <div class="columns">
+  <div class="columns is-variable is-8">
     <div class="column">
       <div class="" id="levels"
         data-controller="groups--level-slider">
@@ -83,7 +84,7 @@
         <input type="hidden" name="group_size" value=""
           data-target="groups--group-size.size">
       </div>
-      <label for="group_size">Group Size:</label>
+      <label for="group_size">How Big is the Group?:</label>
     </div>
   </div>
 
@@ -112,13 +113,15 @@
   <div class="control">
     <label class="radio">
       <input type="radio" name="faction_cross">
-      Allow Horde?
-    </label>
-    <label class="radio">
-      <input type="radio" name="faction_cross">
-      Allow Alliance?
+      Allow Opposite Faction?
     </label>
   </div>
+
+  <datetime-picker
+    data-controller="groups--datetime-picker"
+    data-action="input-picker-closed->groups--datetime-picker#update">
+    <input data-target="groups--datetime-picker.input" type="text" name="datetime" value="">
+  </datetime-picker>
 
   <div class="field">
     <div class="control">
@@ -129,12 +132,11 @@
   <div class="field">
     <div class="control">
       <%= form.hidden_field :description, value: @group.description, id: "trix" %>
-      <trix-editor input="trix" data-controller=""
-        <!-- data-action="trix-change->" -->
-        class="trix_editor">
+      <trix-editor input="trix" class="trix_editor">
       </trix-editor>
     </div>
   </div>
+
 
   <div class="control">
     <%= submit_tag "Submit", class: "button is-primary" %>
