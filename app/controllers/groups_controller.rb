@@ -3,6 +3,8 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    @request_application = Request.new
+    @requests = Request.where({group_id: @group.id})
   end
 
   def new
