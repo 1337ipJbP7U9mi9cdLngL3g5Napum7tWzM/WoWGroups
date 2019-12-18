@@ -1,6 +1,10 @@
 class GroupsController < ApplicationController
   before_action :js_pack_tag
 
+  def show
+    @group = Group.find(params[:id])
+  end
+
   def new
     @regions = Region.all
     @servers = Server.where(region_id: 1).order(:name)
@@ -11,12 +15,13 @@ class GroupsController < ApplicationController
     levels = params[:levels].split(',').map(&:to_i)
     group_roles_amounts = params[:group_roles_amounts].split(',').map(&:to_i)
 
-    Group.create do |x|
+    group = Group.create do |x|
       x.user_id = current_user.id
       x.group_type = params[:type]
       x.private = true if params[:private]
       x.private_url = params[:private_url] if params[:private_url]
       x.levels = levels
+      x.group_size = params[:group_size]
       x.group_tanks = group_roles_amounts[0]
       x.group_heals = group_roles_amounts[1]
       x.group_dps = group_roles_amounts[2]
@@ -29,7 +34,8 @@ class GroupsController < ApplicationController
       x.description = params[:group][:description] if params[:group][:description] != ""
       x.active = true
     end
-    redirect_to new_group_path
+
+    redirect_to group_path(group_params(group))
   end
 
 
@@ -37,6 +43,15 @@ class GroupsController < ApplicationController
 
   def js_pack_tag
     @js_pack_tag = {js: 'group_create'}
+  end
+
+  def group_params(group)
+    if group.private_url
+      group_params = {id: group.id, private_url: group.private_url}
+    else
+      group_params = {id:group.id}
+    end
+    return group_params
   end
 
 end

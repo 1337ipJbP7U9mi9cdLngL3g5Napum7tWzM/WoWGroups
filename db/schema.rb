@@ -79,8 +79,9 @@ ActiveRecord::Schema.define(version: 2019_10_30_190106) do
 
   create_table "requests", force: :cascade do |t|
     t.string "character"
-    t.string "role"
+    t.string "role", array: true
     t.integer "level"
+    t.string "description"
     t.bigint "group_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
