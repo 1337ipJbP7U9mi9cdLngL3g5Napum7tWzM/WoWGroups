@@ -11,5 +11,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [:edit, :update]
   resources :groups, only: [:show, :new, :create]
+  resources :requests, only: [:create, :update]
 
 end

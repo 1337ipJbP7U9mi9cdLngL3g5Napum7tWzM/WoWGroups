@@ -1,0 +1,32 @@
+<%= form_with model: @request do |form| %>
+  <div class="request_application">
+    <div class="request_application_character">
+      <label class="">Character IGN:</label>
+      <input name="character" class="input" type="text" placeholder="Character IGN">
+    </div>
+    <div class="request_application_level" id="level"
+      data-controller="requests--request-application-level">
+      <input type="hidden" name="levels" value=""
+        data-target="requests--request-application-level.level">
+    </div>
+    <div class="request_application_role">
+      <label class="checkbox">
+        <input type="checkbox" name="role[]" value="tank">
+        Tank
+      </label>
+      <label class="checkbox">
+        <input type="checkbox" name="role[]" value="heal">
+        Heal
+      </label>
+      <label class="checkbox">
+        <input type="checkbox" name="role[]" value="dps">
+        Dps
+      </label>
+    </div>
+
+    <input type="hidden" name="id" value="<%= @group.id %>">
+    <div class="control">
+      <%= submit_tag "Submit", class: "button is-primary" %>
+    </div>
+  </div>
+<% end %>
