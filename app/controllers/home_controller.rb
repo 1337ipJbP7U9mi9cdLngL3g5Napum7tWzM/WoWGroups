@@ -5,6 +5,7 @@ class HomeController < ApplicationController
     @user = current_user if current_user
     @regions = Region.all
     @servers = Server.where(region_id: 1).order(:name)
+    @groups = Group.last(10)
   end
 
   def search

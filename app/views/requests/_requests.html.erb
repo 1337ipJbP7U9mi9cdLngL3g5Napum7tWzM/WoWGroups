@@ -7,9 +7,9 @@
       <%= x.level %>
     </div>
     <div class="request_role">
-      <% if x.role.length = 1 %>
+      <% if x.role.length == 1 %>
         |<%= x.role %>|
-      <% elsif x.role.length = 2 %>
+      <% elsif x.role.length == 2 %>
         |<%= x.role[0] %>|<%= x.role[1] %>|
       <% else %>
         |<%= x.role[0] %>|<%= x.role[1] %>|<%= x.role[2] %>|

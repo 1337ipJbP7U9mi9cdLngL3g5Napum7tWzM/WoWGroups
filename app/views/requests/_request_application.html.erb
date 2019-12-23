@@ -1,8 +1,9 @@
 <%= form_with model: @request do |form| %>
   <div class="request_application">
     <div class="request_application_character">
-      <label class="">Character IGN:</label>
-      <input name="character" class="input" type="text" placeholder="Character IGN">
+      <!-- <label class="">Character IGN:</label>
+      <input name="character" class="input" type="text" placeholder="Character IGN"> -->
+      <h4>Character IGN: <%= current_user.username %></h4>
     </div>
     <div class="request_application_level" id="level"
       data-controller="requests--request-application-level">
@@ -22,6 +23,10 @@
         <input type="checkbox" name="role[]" value="dps">
         Dps
       </label>
+    </div>
+    <div class="request_application_description field control">
+      <label for="">Why would you be a good fit for this group?</label>
+      <input name="description" class="input" placeholder="Plead Your Case Here"></input>
     </div>
 
     <input type="hidden" name="id" value="<%= @group.id %>">

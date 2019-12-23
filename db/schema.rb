@@ -83,9 +83,11 @@ ActiveRecord::Schema.define(version: 2019_10_30_190106) do
     t.integer "level"
     t.string "description"
     t.bigint "group_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["group_id"], name: "index_requests_on_group_id"
+    t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
   create_table "servers", force: :cascade do |t|

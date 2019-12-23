@@ -6,6 +6,7 @@ class CreateRequests < ActiveRecord::Migration[6.0]
       t.integer :level
       t.string :description
       t.belongs_to :group
+      t.belongs_to :user
 
       t.timestamps
     end

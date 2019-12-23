@@ -7,50 +7,39 @@
   <% end %>
 </div>
 
-<%= form_with url: search_groups_path do %>
-  <div data-controller="home-page--servers-select">
+<%= render 'servers/server_region_pick' %>
 
-    <div class="columns">
-      <div class="field column is-half has-addons has-addons-centered">
-        <p class="control has-icons-left">
-          <span class="select">
-            <select name="region" id="region_id"
-              data-action="change->home-page--servers-select#regionSelect"
-              data-target="home-page--servers-select.regionSelected">
-              <% @regions.each do |region| %>
-                <option value="<%= region.id %>">
-                  <%= region.name %>
-                </option>
-              <% end %>
-            </select>
-          </span>
-          <span class="icon is-small is-left">
-            <i class="fas fa-globe"></i>
-          </span>
-        </p>
-      </div>
-
-      <div class="field column is-half has-addons has-addons-centered">
-        <p class="control has-icons-left">
-          <span class="select">
-            <select name="server" id="server_id"
-              data-target="home-page--servers-select.serverRegion">
-              <%= render 'servers/server_options' %>
-            </select>
-          </span>
-          <span class="icon is-small is-left">
-            <i class="fas fa-server"
-            data-target="home-page--servers-select.serverIcon"></i>
-          </span>
-        </p>
-      </div>
+<div class="groups box columns">
+  <% @groups.each do |group| %>
+  <div class="group">
+    <div class="group__server">
+      <%= Server.find(group.server_id).name %>
     </div>
-
-
-
-    <div class="control">
-      <%= submit_tag "Submit", class: "button is-primary" %>
+    <div class="group__type">
+      <%= group.group_type %>
     </div>
-
+    <div class="group__tanks">
+      <%= group.group_tanks %>
+    </div>
+    <div class="group__heals">
+      <%= group.group_heals %>
+    </div>
+    <div class="group__dps">
+      <%= group.group_dps %>
+    </div>
+    <div class="group__faction">
+      <% if group.faction == 0 %>
+      Alliance
+      <% else %>
+      Horde
+      <% end %>
+    </div>
+    <div class="group__description">
+      <%= group.short_description %>
+    </div>
+    <div class="group__time">
+      <%= group.time %>
+    </div>
   </div>
-<% end %>
+  <% end %>
+</div>
