@@ -1,45 +1,49 @@
-<div class="">
-  <% if @user %>
-    <h4><%= @user.username%></h4>
-    <a href="/logout">Logout</a>
-  <% else %>
-    <a href="/auth/bnet">Sign In</a>
-  <% end %>
-</div>
-
 <%= render 'servers/server_region_pick' %>
 
-<div class="groups box columns">
+<section class="section groups columns is-multiline is-centered">
   <% @groups.each do |group| %>
-  <div class="group">
-    <div class="group__server">
-      <%= Server.find(group.server_id).name %>
-    </div>
-    <div class="group__type">
-      <%= group.group_type %>
-    </div>
-    <div class="group__tanks">
-      <%= group.group_tanks %>
-    </div>
-    <div class="group__heals">
-      <%= group.group_heals %>
-    </div>
-    <div class="group__dps">
-      <%= group.group_dps %>
-    </div>
-    <div class="group__faction">
-      <% if group.faction == 0 %>
-      Alliance
-      <% else %>
-      Horde
-      <% end %>
-    </div>
-    <div class="group__description">
-      <%= group.short_description %>
-    </div>
-    <div class="group__time">
-      <%= group.time %>
+  <div class="group column is-full">
+    <div class="columns">
+      
+      <div class="group__time column is-1">
+        <%= time_ago_in_words(group.time) %>
+      </div>
+      <div class="column columns is-4">
+        <div class="group__server column">
+          <%= Server.find(group.server_id).name %>
+        </div>
+        <div class="group__type column">
+          <%= group.group_type.capitalize %>
+        </div>
+        <div class="group__faction column">
+          <% if group.faction == 0 %>
+          Alliance
+          <% else %>
+          Horde
+          <% end %>
+        </div>
+      </div>
+
+      <div class="column columns is-2">
+        <div class="group__tanks column has-text-centered">
+          <p>Tanks:</p>
+          <%= group.group_tanks %>
+        </div>
+        <div class="group__heals column has-text-centered">
+          <p>Heals:</p>
+          <%= group.group_heals %>
+        </div>
+        <div class="group__dps column has-text-centered">
+          <p>DPS:</p>
+          <%= group.group_dps %>
+        </div>
+      </div>
+
+      <div class="group__description column">
+        <%= group.short_description %>
+      </div>
+
     </div>
   </div>
   <% end %>
-</div>
+</section>
