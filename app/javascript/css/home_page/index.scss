@@ -1,7 +1,4 @@
 .groups {
-  height: auto;
-  overflow-y: hidden;
-  overflow-x: hidden;
   position: relative;
 }
 
@@ -9,6 +6,7 @@
   border-bottom-color: rgba(221,221,221,0.1);
   border-bottom-style: solid;
   border-bottom-width: 1px;
+  width: 100%;
 
   &:hover {
     background-color: rgba(221,221,221,0.1);
