@@ -1,1 +1,17 @@
+.groups {
+  height: auto;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  position: relative;
+}
 
+.group {
+  border-bottom-color: rgba(221,221,221,0.1);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+
+  &:hover {
+    background-color: rgba(221,221,221,0.1);
+    color: #fff;
+  }
+}
