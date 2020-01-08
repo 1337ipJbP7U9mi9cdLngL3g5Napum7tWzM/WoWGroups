@@ -1,0 +1,64 @@
+.select select {
+  background-color: #211b17;
+  color: #ababab;
+
+  option {
+    background-color: #211b17;
+    color: #ababab;
+  }
+}
+
+.slider-m-top {
+  margin-top: 1.5rem;
+}
+
+.noUi-target {
+  margin-bottom: .35rem;
+}
+
+.noUi-connects {
+  background-color: #372015;
+}
+
+.noUi-touch-area {
+  background-color: #211b17;
+}
+
+.noUi-tooltip {
+  background-color: #211b17;
+  color: #fff;
+}
+
+#tanks .noUi-connect {
+	background: #c69b6d;
+}
+
+#heals .noUi-connect {
+	background: #fff;
+}
+
+#dps .noUi-connect {
+	background: #c0392b;
+}
+
+.input {
+  background-color: #211b17;
+  color: #ababab;
+}
+
+.input::placeholder, .textarea::placeholder, .select select::placeholder {
+  color: #808080;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #808080;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #808080;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #ababab;
+}

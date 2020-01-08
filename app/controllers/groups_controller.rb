@@ -15,7 +15,7 @@ class GroupsController < ApplicationController
 
   def create
     levels = params[:levels].split(',').map(&:to_i)
-    group_roles_amounts = params[:group_roles_amounts].split(',').map(&:to_i)
+    group_roles_amounts = params[:group_roles_amounts].map(&:to_i)
 
     group = Group.create do |x|
       x.user_id = current_user.id

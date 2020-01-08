@@ -1,147 +1,164 @@
-<%= form_with model: @group do |form| %>
-<div data-controller="home-page--servers-select">
-  <div class="columns">
-    <div class="field column has-addons has-addons-centered vertical-center-content">
-      <p class="control has-icons-left">
-        <span class="select">
-          <select name="region" id="region_id"
-            data-action="change->home-page--servers-select#regionSelect"
-            data-target="home-page--servers-select.regionSelected">
-            <% @regions.each do |region| %>
-              <option value="<%= region.id %>">
-                <%= region.name %>
-              </option>
-            <% end %>
-          </select>
-        </span>
-        <span class="icon is-small is-left">
-          <i class="fas fa-globe"></i>
-        </span>
-      </p>
-    </div>
-
-    <div class="field column has-addons has-addons-centered vertical-center-content">
-      <p class="control has-icons-left">
-        <span class="select">
-          <select name="server" id="server_id"
-            data-target="home-page--servers-select.serverRegion">
-            <%= render 'servers/server_options' %>
-          </select>
-        </span>
-        <span class="icon is-small is-left">
-          <i class="fas fa-server"
-          data-target="home-page--servers-select.serverIcon"></i>
-        </span>
-      </p>
-    </div>
-
-    <div class="field column has-addons has-addons-centered vertical-center-content">
-        <p class="control">
+<section class="section">
+  <%= form_with model: @group do |form| %>
+  <div data-controller="home-page--servers-select">
+    <div class="columns regions">
+      <div class="field column has-addons has-addons-centered vertical-center-content">
+        <p class="control has-icons-left">
           <span class="select">
-            <select name="type" id="type">
-              <option value="dungeon">
-                Dungeon
-              </option>
-              <option value="raid">
-                Raid
-              </option>
-              <option value="pvp">
-                PvP
-              </option>
-              <option value="custom">
-                Custom
-              </option>
+            <select name="region" id="region_id"
+              data-action="change->home-page--servers-select#regionSelect"
+              data-target="home-page--servers-select.regionSelected">
+              <% @regions.each do |region| %>
+                <option value="<%= region.id %>">
+                  <%= region.name %>
+                </option>
+              <% end %>
             </select>
           </span>
+          <span class="icon is-small is-left">
+            <i class="fas fa-globe"></i>
+          </span>
         </p>
+      </div>
+
+      <div class="field column has-addons has-addons-centered vertical-center-content">
+        <p class="control has-icons-left">
+          <span class="select">
+            <select name="server" id="server_id"
+              data-target="home-page--servers-select.serverRegion">
+              <%= render 'servers/server_options' %>
+            </select>
+          </span>
+          <span class="icon is-small is-left">
+            <i class="fas fa-server"
+            data-target="home-page--servers-select.serverIcon"></i>
+          </span>
+        </p>
+      </div>
+
+      <div class="field column has-addons has-addons-centered vertical-center-content">
+          <p class="control">
+            <span class="select">
+              <select name="type" id="type">
+                <option value="dungeon">
+                  Dungeon
+                </option>
+                <option value="raid">
+                  Raid
+                </option>
+                <option value="pvp">
+                  PvP
+                </option>
+                <option value="custom">
+                  Custom
+                </option>
+              </select>
+            </span>
+          </p>
+      </div>
+      <div class="column private">
+        <label class="checkbox">
+          <input type="checkbox" name="private">
+          Private Group?
+        </label>
+        <input name="private_url" class="input" type="text" placeholder="Password for Custom Group">
+      </div>
     </div>
-    <div class="column private">
-      <label class="checkbox">
-        <input type="checkbox" name="private">
-        Private Group?
+
+
+    <div class="columns is-variable is-8 slider-m-top">
+      <div class="column">
+        <div class="" id="levels"
+          data-controller="groups--level-slider">
+
+          <input type="hidden" name="levels" value=""
+            data-target="groups--level-slider.levels">
+        </div>
+        <label for="levels">Levels Allowed:</label>
+      </div>
+
+      <div class="column">
+        <div class="" id="group_size"
+          data-controller="groups--group-size"
+          data-action="groups--group-size#update">
+
+          <input type="hidden" name="group_size" value=""
+            data-target="groups--group-size.size">
+        </div>
+        <label for="group_size">How Big is the Group?:</label>
+      </div>
+    </div>
+
+    <div class="columns slider-m-top"
+      data-controller="groups--group-roles"
+      data-action="load@window->groups--group-roles#connectGroupSliders">
+      <div class="column">
+        <div class="group_role_sliders" id="tanks">
+
+          <input type="hidden" name="group_roles_amounts[]" value="">
+        </div>
+        <label for="group_roles"> <span>#</span> Tanks</label>
+      </div>
+      <div class="column">
+        <div class="group_role_sliders" id="heals">
+
+          <input type="hidden" name="group_roles_amounts[]" value="">
+        </div>
+        <label for="group_roles"> <span>#</span> Healers</label>
+      </div>
+      <div class="column">
+        <div class="group_role_sliders" id="dps">
+
+          <input type="hidden" name="group_roles_amounts[]" value="">
+        </div>
+        <label for="group_roles"> <span>#</span> DPS</label>
+      </div>
+    </div>
+
+    <div class="control">
+      <label class="radio">
+        <input type="radio" name="faction" value="horde">
+        Horde
       </label>
-      <input name="private_url" class="input" type="text" placeholder="Password for Custom Group">
-    </div>
-  </div>
-
-
-  <div class="columns is-variable is-8">
-    <div class="column">
-      <div class="" id="levels"
-        data-controller="groups--level-slider">
-
-        <input type="hidden" name="levels" value=""
-          data-target="groups--level-slider.levels">
-      </div>
-      <label for="levels">Levels Allowed:</label>
+      <label class="radio">
+        <input type="radio" name="faction" value="alliance">
+        Alliance
+      </label>
     </div>
 
-    <div class="column">
-      <div class="" id="group_size"
-        data-controller="groups--group-size"
-        data-action="groups--group-size#update">
-
-        <input type="hidden" name="group_size" value=""
-          data-target="groups--group-size.size">
-      </div>
-      <label for="group_size">How Big is the Group?:</label>
-    </div>
-  </div>
-
-  <div class="columns" data-controller="groups--group-roles">
-    <div class="column">
-      <div class="" id="group_roles">
-
-        <input type="hidden" name="group_roles_amounts" value=""
-          data-target="groups--group-roles.groupRolesAmounts">
-      </div>
-      <label for="group_roles"># DO role's numbers here</label>
-    </div>
-  </div>
-
-  <div class="control">
-    <label class="radio">
-      <input type="radio" name="faction" value="horde">
-      Horde
-    </label>
-    <label class="radio">
-      <input type="radio" name="faction" value="alliance">
-      Alliance
-    </label>
-  </div>
-
-  <div class="control">
-    <label class="radio">
-      <input type="radio" name="faction_cross">
-      Allow Opposite Faction?
-    </label>
-  </div>
-
-  <datetime-picker
-    data-controller="groups--datetime-picker"
-    data-action="input-picker-closed->groups--datetime-picker#update">
-    <input data-target="groups--datetime-picker.input" type="text" name="datetime" value="">
-  </datetime-picker>
-
-  <div class="field">
     <div class="control">
-      <input type="text" name="short_description" class="input" placeholder="Short Description"></input>
+      <label class="radio">
+        <input type="radio" name="faction_cross">
+        Allow Opposite Faction?
+      </label>
     </div>
-  </div>
 
-  <div class="field">
+    <datetime-picker
+      data-controller="groups--datetime-picker"
+      data-action="input-picker-closed->groups--datetime-picker#update">
+      <input data-target="groups--datetime-picker.input" type="text" name="datetime" value="">
+    </datetime-picker>
+
+    <div class="field">
+      <div class="control">
+        <input type="text" name="short_description" class="input" placeholder="Short Description"></input>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <%= form.hidden_field :description, value: @group.description, id: "trix" %>
+        <trix-editor input="trix" class="trix_editor">
+        </trix-editor>
+      </div>
+    </div>
+
+
     <div class="control">
-      <%= form.hidden_field :description, value: @group.description, id: "trix" %>
-      <trix-editor input="trix" class="trix_editor">
-      </trix-editor>
+      <%= submit_tag "Submit", class: "button is-primary" %>
     </div>
+
   </div>
 
-
-  <div class="control">
-    <%= submit_tag "Submit", class: "button is-primary" %>
-  </div>
-
-</div>
-
-<% end %>
+  <% end %>
+</section>
