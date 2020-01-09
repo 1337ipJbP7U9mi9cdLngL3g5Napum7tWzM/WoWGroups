@@ -131,13 +131,17 @@
 
         <div class="column" data-controller="groups--datetime-picker">
           <label class="checkbox">
-            <input type="checkbox" name="time">
+            <input type="checkbox" name="time"
+              data-target="groups--datetime-picker.checkbox"
+              data-action="change->groups--datetime-picker#datepickerHidden
+                           load@window->groups--datetime-picker#datepickerHidden">
             Want to Create a Future Group?
           </label>
           <datetime-picker
-            class=""
+            class="is-hidden"
             data-target="groups--datetime-picker.picker"
-            data-action="input-picker-closed->groups--datetime-picker#update">
+            data-action="input-picker-closed->groups--datetime-picker#update
+                         load@window->groups--datetime-picker#update">
             <input data-target="groups--datetime-picker.input" type="text" name="datetime" value="">
           </datetime-picker>
         </div>
