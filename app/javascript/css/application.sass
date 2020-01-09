@@ -1,16 +1,16 @@
 @import 'normalize.css'
-@import 'trix/dist/trix.css'
-// @import 'actiontext'
 @import 'bulma'
 
 html
   scroll-behavior: smooth
-  overflow-y: hidden
+  overflow-y: auto
 
   body
-    height: 100vh
     color: #ababab
     background-color: #211b17
+    display: flex
+    flex-direction: column
+    height: 100vh
 
 
 .vertical-center-content
@@ -18,3 +18,6 @@ html
 
 .footer
   background-color: #211b17
+
+.checkbox:hover
+  color: #fff
