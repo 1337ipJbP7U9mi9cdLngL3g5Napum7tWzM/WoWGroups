@@ -1,49 +1,51 @@
-<div class="group">
-  <div class="server">
-    <p>Server: <%= Server.find(@group.server_id).name %></p>
-  </div>
-  <div class="faction">
-    <p>
-      Faction:
-      <% if @group.faction == 0 %>
-        <%= "Alliance" %>
-      <% else %>
-        <%= "Horde" %>
-      <% end %>
-    </p>
-  </div>
-  <% if @group.faction_cross != 0 %>
-    <div class="faction_cross">
-      <p>Other Faction Invited</p>
+<main class="section">
+  <div class="group">
+    <div class="group__server_faction_type level">
+      <div class="server level-item">
+        <p><%= Server.find(@group.server_id).name %></p>
+      </div>
+      <div class="faction level-item">
+        <p>
+          <% if @group.faction == 0 %>
+            <%= "Alliance" %>
+          <% elsif @group.faction_cross != 0 %>
+            <%= "Alliance / Horde" %>
+          <% else %>
+            <%= "Horde" %>
+          <% end %>
+        </p>
+      </div>
+      <div class="type level-item">
+        <p><%= @group.group_type.capitalize %></p>
+      </div>
     </div>
-  <% end %>
-  <div class="type">
-    <p><%= @group.group_type.capitalize %></p>
+    <div class="group_amounts level">
+      <div class="levels level-item">
+        <p>Between: <%= @group.levels[0] %> --- <%= @group.levels[1] %></p>
+      </div>
+      <div class="group_size level-item">
+        <p>Group Size: <%= @group.group_size %></p>
+      </div>
+      <div class="tanks level-item">
+        <p>Tanks Needed: <%= @group.group_tanks %></p>
+      </div>
+      <div class="heals level-item">
+        <p>Healers Needed: <%= @group.group_heals %></p>
+      </div>
+      <div class="dps level-item">
+        <p>Dps Needed: <%= @group.group_dps %></p>
+      </div>
+    </div>
+    <div class="short_description level">
+      <p><%= @group.short_description %></p>
+    </div>
+    <div class="description level">
+      <%= @group.description %>
+    </div>
   </div>
-  <div class="levels">
-    <p>Between: <%= @group.levels[0] %> --- <%= @group.levels[1] %></p>
-  </div>
-  <div class="group_size">
-    <p>Group Size: <%= @group.group_size %></p>
-  </div>
-  <div class="tanks">
-    <p>Tanks Needed: <%= @group.group_tanks %></p>
-  </div>
-  <div class="heals">
-    <p>Healers Needed: <%= @group.group_heals %></p>
-  </div>
-  <div class="dps">
-    <p>Dps Needed: <%= @group.group_dps %></p>
-  </div>
-  <div class="short_description">
-    <p><%= @group.short_description %></p>
-  </div>
-  <div class="description">
-    <%= @group.description %>
-  </div>
-</div>
 
-<div class="requests">
-  <%= render 'requests/request_application' %>
-  <%= render 'requests/requests' %>
-</div>
+  <div class="requests">
+    <%= render 'requests/request_application' %>
+    <%= render 'requests/requests' %>
+  </div>
+</main>

@@ -1,7 +1,7 @@
 <header class="">
   <div class="container">
-    <% if @user %>
-      <h4><%= @user.username%></h4>
+    <% if current_user %>
+      <h4><%= current_user.username%></h4>
       <a href="/logout">Logout</a>
     <% else %>
       <a href="/auth/bnet">Sign In</a>

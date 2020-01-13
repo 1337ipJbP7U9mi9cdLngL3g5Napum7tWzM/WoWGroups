@@ -1,13 +1,15 @@
 class GroupsController < ApplicationController
-  before_action :js_pack_tag
+  # before_action :js_pack_tag
 
   def show
+    js_pack_tag('group_show')
     @group = Group.find(params[:id])
     @request = Request.new
     @requests = Request.where({group_id: @group.id})
   end
 
   def new
+    js_pack_tag('group_create')
     @regions = Region.all
     @servers = Server.where(region_id: 1).order(:name)
     @group = Group.new
@@ -43,8 +45,8 @@ class GroupsController < ApplicationController
 
   private
 
-  def js_pack_tag
-    @js_pack_tag = {js: 'group_create'}
+  def js_pack_tag(pack_tag_name)
+    @js_pack_tag = {js: pack_tag_name}
   end
 
   def group_params(group)
