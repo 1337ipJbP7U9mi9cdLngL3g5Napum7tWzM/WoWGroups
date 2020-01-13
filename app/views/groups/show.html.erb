@@ -44,8 +44,17 @@
     </div>
   </div>
 
+  <div class="modal"
+    data-controller="groups--request-application">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <!-- Any other Bulma elements you want -->
+      <%= render 'requests/request_application' %>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+
   <div class="requests">
-    <%= render 'requests/request_application' %>
     <%= render 'requests/requests' %>
   </div>
 </main>
