@@ -44,14 +44,21 @@
     </div>
   </div>
 
-  <div class="modal"
-    data-controller="groups--request-application">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-      <!-- Any other Bulma elements you want -->
-      <%= render 'requests/request_application' %>
+  <div class="request_modal"
+    data-controller="requests--request-application">
+    <button class="button" aria-label="open"
+      data-action="click->requests--request-application#modalOpen">
+    </button>
+    <div class="modal"
+      data-target="requests--request-application.modal">
+      <div class="modal-background"
+        data-action="click->requests--request-application#modalClose"></div>
+      <div class="modal-content">
+        <%= render 'requests/request_application' %>
+      </div>
+      <button class="modal-close is-large" aria-label="close"
+        data-action="click->requests--request-application#modalClose"></button>
     </div>
-    <button class="modal-close is-large" aria-label="close"></button>
   </div>
 
   <div class="requests">
