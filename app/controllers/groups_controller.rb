@@ -50,7 +50,7 @@ class GroupsController < ApplicationController
   end
 
   def group_params(group)
-    if group.private_url
+    if group.private
       group_params = {id: group.id, private_url: group.private_url}
     else
       group_params = {id:group.id}

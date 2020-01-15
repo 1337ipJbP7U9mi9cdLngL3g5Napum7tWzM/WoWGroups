@@ -1,12 +1,13 @@
 <%= form_with model: @request do |form| %>
   <div class="request_application">
-    <div class="request_application_character">
+    <div class="request_application_character has-text-centered">
       <h4>Character IGN: <%= current_user.username.capitalize %></h4>
     </div>
     <div class="level_character_ign level">
+      <label for="request-level">Level: </label>
       <div class="request_application_level level-item" id="level"
         data-controller="requests--request-application-level">
-        <input type="hidden" name="levels" value=""
+        <input type="hidden" name="levels" value="" id="request-level"
           data-target="requests--request-application-level.level">
       </div>
       <div class="request_application_role">

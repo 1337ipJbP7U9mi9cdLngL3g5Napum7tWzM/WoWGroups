@@ -1,3 +1,10 @@
+.group__server_faction_type {
+  border-bottom: 3px groove;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  padding-bottom: 1rem;
+}
+
 .modal-background {
   background-color: rgba(217, 217, 217, 0.37);
 }
@@ -19,6 +26,7 @@
 .noUi-target {
   margin-bottom: .35rem;
   margin-right: 1.5rem;
+  margin-left: 1.5rem;
 }
 
 .noUi-connects {

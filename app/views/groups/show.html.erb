@@ -1,4 +1,6 @@
-<main class="section">
+<main class="section"
+  data-controller="groups--show-scrollbar"
+  data-action="load@window->groups--show-scrollbar#scrollbarStart">
   <div class="group">
     <div class="group__server_faction_type level">
       <div class="server level-item">
@@ -36,10 +38,12 @@
         <p>Dps Needed: <%= @group.group_dps %></p>
       </div>
     </div>
-    <div class="short_description level">
+    <div class="short_description box">
+      <h3 class="title has-text-centered">TL:DR</h3>
       <p><%= @group.short_description %></p>
     </div>
-    <div class="description level">
+    <div class="description box">
+      <h3 class="title has-text-centered">Full Requirements</h3>
       <%= @group.description %>
     </div>
   </div>
