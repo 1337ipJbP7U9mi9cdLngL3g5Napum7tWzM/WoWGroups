@@ -1,37 +1,44 @@
 <%= form_with model: @request do |form| %>
   <div class="request_application">
+    <div class="request_application_character">
+      <h4>Character IGN: <%= current_user.username.capitalize %></h4>
+    </div>
     <div class="level_character_ign level">
       <div class="request_application_level level-item" id="level"
         data-controller="requests--request-application-level">
         <input type="hidden" name="levels" value=""
           data-target="requests--request-application-level.level">
       </div>
-      <div class="request_application_character level-item">
-        <h4>Character IGN: <%= current_user.username %></h4>
+      <div class="request_application_role">
+        <label for="tank" class="checkbox">
+          <input id="tank" type="checkbox" name="role[]" value="tank">
+          Tank
+        </label>
+        <label for="heal" class="checkbox">
+          <input id="heal" type="checkbox" name="role[]" value="heal">
+          Heal
+        </label>
+        <label for="dps" class="checkbox">
+          <input id="dps" type="checkbox" name="role[]" value="dps">
+          Dps
+        </label>
       </div>
     </div>
-    <div class="request_application_role">
-      <label for="tank" class="checkbox">
-        <input id="tank" type="checkbox" name="role[]" value="tank">
-        Tank
-      </label>
-      <label for="heal" class="checkbox">
-        <input id="heal" type="checkbox" name="role[]" value="heal">
-        Heal
-      </label>
-      <label for="dps" class="checkbox">
-        <input id="dps" type="checkbox" name="role[]" value="dps">
-        Dps
-      </label>
-    </div>
-    <div class="request_application_description field control">
+    <div class="request_application_description field control"
+      data-controller="requests--request-description">
       <label for="description">Why would you be a good fit for this group?</label>
-      <input id="description" name="description" class="input" placeholder="Plead Your Case Here"></input>
+      <input id="description" name="description" class="input" placeholder="Plead Your Case Here"
+        data-target="requests--request-description.input"
+        data-action="input->requests--request-description#length"></input>
+      <p data-target="requests--request-description.length">
+        Characters left:
+        <span></span>
+      </p>
     </div>
 
     <input type="hidden" name="id" value="<%= @group.id %>">
     <div class="control">
-      <%= submit_tag "Submit", class: "button is-primary" %>
+      <%= submit_tag "Submit", {class: "button is-primary", id: "submit"} %>
     </div>
   </div>
 <% end %>

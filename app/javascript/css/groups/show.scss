@@ -13,11 +13,12 @@
 }
 
 .level_character_ign {
-  margin-top: 1.75rem;
+  margin-top: 3rem;
 }
 
 .noUi-target {
   margin-bottom: .35rem;
+  margin-right: 1.5rem;
 }
 
 .noUi-connects {
@@ -31,4 +32,26 @@
 .noUi-tooltip {
   background-color: #211b17;
   color: #fff;
+}
+
+.input {
+  background-color: #211b17;
+  color: #ababab;
+}
+
+.input::placeholder, .textarea::placeholder, .select select::placeholder {
+  color: #808080;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #808080;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #808080;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #ababab;
 }
