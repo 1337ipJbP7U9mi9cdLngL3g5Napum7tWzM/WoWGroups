@@ -1,22 +1,39 @@
 <div class="request_applications">
   <% @requests.each do |x| %>
-    <div class="request_character">
-      <%= x.character %>
-    </div>
-    <div class="request_level">
-      <%= x.level %>
-    </div>
-    <div class="request_role">
-      <% if x.role.length == 1 %>
-        |<%= x.role %>|
-      <% elsif x.role.length == 2 %>
-        |<%= x.role[0] %>|<%= x.role[1] %>|
-      <% else %>
-        |<%= x.role[0] %>|<%= x.role[1] %>|<%= x.role[2] %>|
+    <div class="request box columns">
+      <div class="about_character column is-2">
+        <div class="request_character">
+          <%= x.character.capitalize %>
+        </div>
+        <div class="request_level">
+          <%= x.level %>
+        </div>
+        <div class="request_role">
+          <% if x.role.length == 1 %>
+            <%= x.role[0] %>
+          <% elsif x.role.length == 2 %>
+            <%= x.role[0] %> / <%= x.role[1] %>
+          <% else %>
+            <%= x.role[0] %> / <%= x.role[1] %> / <%= x.role[2] %>
+          <% end %>
+        </div>
+      </div>
+      <div class="request_description column">
+        <%= x.description %>
+      </div>
+      <% if current_user && current_user.id == @group.user_id %>
+        <div class="accept_deny_request level">
+          <button class="button is-success" type="button" name="button">
+            Accept
+          </button>
+          <button class="button is-danger" type="button" name="button">
+            Deny
+          </button>
+          <button class="button is-link" type="button" name="button">
+            Reserve
+          </button>
+        </div>
       <% end %>
-    </div>
-    <div class="request_description">
-      <%= x.description %>
     </div>
   <% end %>
 </div>

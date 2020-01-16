@@ -27,7 +27,7 @@ export default class extends Controller {
         }
     })
 
-    // level.noUiSlider.on('update', (level) => {this.update(event, level)});
+    level.noUiSlider.on('update', (level) => {this.update(event, level)});
   }
 
   update(event, level) {
