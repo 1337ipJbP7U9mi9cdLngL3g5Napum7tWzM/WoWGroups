@@ -1,31 +1,31 @@
 <div class="request_applications">
-  <% @requests.each do |x| %>
+  <% @requests.each do |request| %>
     <div class="request box columns">
       <div class="about_character column is-2">
         <div class="request_character">
-          <%= x.character.capitalize %>
+          <%= request.character.capitalize %>
         </div>
         <div class="request_level">
-          <%= x.level %>
+          <%= request.level %>
         </div>
         <div class="request_role">
-          <% if x.role.length == 1 %>
-            <%= x.role[0] %>
-          <% elsif x.role.length == 2 %>
-            <%= x.role[0] %> / <%= x.role[1] %>
+          <% if request.role.length == 1 %>
+            <%= request.role[0] %>
+          <% elsif request.role.length == 2 %>
+            <%= request.role[0] %> / <%= request.role[1] %>
           <% else %>
-            <%= x.role[0] %> / <%= x.role[1] %> / <%= x.role[2] %>
+            <%= request.role[0] %> / <%= request.role[1] %> / <%= request.role[2] %>
           <% end %>
         </div>
       </div>
       <div class="request_description column">
-        <%= x.description %>
+        <%= request.description %>
       </div>
       <% if current_user && current_user.id == @group.user_id %>
         <div class="accept_deny_request level">
-          <button class="button is-success" type="button" name="button">
+          <%= button_to group_accept_path(group_id: @group.id, user_id: request.user_id), {class: "button is-success"} do %>
             Accept
-          </button>
+          <% end %>
           <button class="button is-danger" type="button" name="button">
             Deny
           </button>

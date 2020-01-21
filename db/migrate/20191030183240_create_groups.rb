@@ -10,9 +10,9 @@ class CreateGroups < ActiveRecord::Migration[6.0]
       t.integer :group_tanks
       t.integer :group_heals
       t.integer :group_dps
-      t.integer :group_accepted, array: true
-      t.integer :group_declined, array: true
-      t.integer :group_reserves, array: true
+      t.integer :group_accepted, array: true, default: []
+      t.integer :group_declined, array: true, default: []
+      t.integer :group_reserves, array: true, default: []
       t.belongs_to :server
       t.integer :faction
       t.boolean :faction_cross, null: false, default: false

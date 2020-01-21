@@ -30,7 +30,7 @@ class GroupsController < ApplicationController
       x.group_heals = group_roles_amounts[1]
       x.group_dps = group_roles_amounts[2]
       x.server_id = params[:server]
-      x.group_accepted = [current_user.id]
+      x.group_accepted << current_user.id
       x.faction = params[:faction]
       x.faction_cross = params[:faction_cross] if params[:faction_cross]
       x.time = params[:datetime] if params[:datetime]
@@ -40,6 +40,33 @@ class GroupsController < ApplicationController
     end
 
     redirect_to group_path(group_params(group))
+  end
+
+
+  def accept
+    group = Group.find(params[:group_id])
+    if current_user && current_user.id == group.user_id
+      unless group.group_accepted.include?(params[:user_id])
+        group.group_accepted << params[:user_id]
+        group.save
+      end
+    end
+    redirect_to group_path(params[:group_id])
+  end
+
+  def deny
+    group = Group.find(params[:group_id])
+    if current_user && current_user.id == group.user_id
+      if group.group_accepted.include?(params[:user_id])
+        group_accepted = group.group_accepted
+        group_accepted.delete(params[:user_id])
+        group.group_accepted = group_accepted
+      end
+      unless group.group_deny.include?(params[:user_id]) || group.group_deny == nil
+        group.group_deny
+      end
+      group.save
+    end
   end
 
 
@@ -53,7 +80,7 @@ class GroupsController < ApplicationController
     if group.private
       group_params = {id: group.id, private_url: group.private_url}
     else
-      group_params = {id:group.id}
+      group_params = {id: group.id}
     end
     return group_params
   end

@@ -9,8 +9,12 @@ Rails.application.routes.draw do
   get '/auth/bnet/callback' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
+  resources :groups do
+    post 'accept'
+    get 'deny'
+    get 'reserve' 
+  end
   resources :users, only: [:edit, :update]
-  resources :groups, only: [:show, :new, :create]
   resources :requests, only: [:create, :update]
 
 end

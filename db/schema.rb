@@ -56,9 +56,9 @@ ActiveRecord::Schema.define(version: 2019_10_30_190106) do
     t.integer "group_tanks"
     t.integer "group_heals"
     t.integer "group_dps"
-    t.integer "group_accepted", array: true
-    t.integer "group_declined", array: true
-    t.integer "group_reserves", array: true
+    t.integer "group_accepted", default: [], array: true
+    t.integer "group_declined", default: [], array: true
+    t.integer "group_reserves", default: [], array: true
     t.bigint "server_id"
     t.integer "faction"
     t.boolean "faction_cross", default: false, null: false
