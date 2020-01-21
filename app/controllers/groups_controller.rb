@@ -30,9 +30,9 @@ class GroupsController < ApplicationController
       x.group_heals = group_roles_amounts[1]
       x.group_dps = group_roles_amounts[2]
       x.server_id = params[:server]
-      x.group_accepted << current_user.id
+      x.group_accepted = [current_user.id]
       x.faction = params[:faction]
-      x.faction_cross = params[:faction_cross] if params[:faction_cross]
+      x.faction_cross = true if params[:faction_cross]
       x.time = params[:datetime] if params[:datetime]
       x.short_description = params[:short_description]
       x.description = params[:group][:description] if params[:group][:description] != ""

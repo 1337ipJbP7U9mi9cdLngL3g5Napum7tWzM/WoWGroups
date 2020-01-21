@@ -1,5 +1,6 @@
 <%= form_with model: @request, local: true do |form| %>
-  <div class="request_application">
+  <div class="request_application"
+    data-controller="requests--request-application-validation">
     <div class="request_application_character has-text-centered">
       <h4>Character IGN: <%= current_user.username.capitalize %></h4>
     </div>
@@ -12,15 +13,21 @@
       </div>
       <div class="request_application_role">
         <label for="tank" class="checkbox">
-          <input id="tank" type="checkbox" name="role[]" value="tank">
+          <input id="tank" type="checkbox" name="role[]" value="tank"
+            data-target="requests--request-application-validation.role"
+            data-action="change->requests--request-application-validation#update">
           Tank
         </label>
         <label for="heal" class="checkbox">
-          <input id="heal" type="checkbox" name="role[]" value="heal">
+          <input id="heal" type="checkbox" name="role[]" value="heal"
+            data-target="requests--request-application-validation.role"
+            data-action="change->requests--request-application-validation#update">
           Heal
         </label>
         <label for="dps" class="checkbox">
-          <input id="dps" type="checkbox" name="role[]" value="dps">
+          <input id="dps" type="checkbox" name="role[]" value="dps"
+            data-target="requests--request-application-validation.role"
+            data-action="change->requests--request-application-validation#update">
           Dps
         </label>
       </div>
@@ -29,17 +36,19 @@
       data-controller="requests--request-description">
       <label for="description">Why would you be a good fit for this group?</label>
       <input id="description" name="description" class="input" placeholder="Plead Your Case Here"
-        data-target="requests--request-description.input"
-        data-action="input->requests--request-description#length"></input>
+        data-target="requests--request-description.input
+                     requests--request-application-validation.description"
+        data-action="input->requests--request-description#length
+                     input->requests--request-application-validation#update"></input>
       <p data-target="requests--request-description.length">
         Characters left:
         <span></span>
       </p>
     </div>
-
-    <input type="hidden" name="id" value="<%= @group.id %>">
+    <%= hidden_field_tag "id", @group.id %>
     <div class="control">
-      <%= submit_tag "Submit", {class: "button is-primary", id: "submit"} %>
+      <%= submit_tag "Submit", {class: "button is-primary", id: "submit",
+        data: {target: "requests--request-application-validation.submit"}}%>
     </div>
   </div>
 <% end %>
