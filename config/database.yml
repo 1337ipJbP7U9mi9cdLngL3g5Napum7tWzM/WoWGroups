@@ -3,14 +3,20 @@ default: &default
   encoding: unicode
   host: localhost
   username: wowgroups
-  password: 123456
   pool: 5
+
+production:
+  <<: *default
+  database: WoWGroups_production
+  password: Rails.application.credentials.postgresql_password
 
 development:
   <<: *default
   database: WoWGroups_development
+  password: 123456
 
 
 test:
   <<: *default
   database: WoWGroups_test
+  password: 123456
