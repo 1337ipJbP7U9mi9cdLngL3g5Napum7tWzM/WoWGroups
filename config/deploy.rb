@@ -38,7 +38,7 @@ set :linked_files, fetch(:linked_files, []).push("config/master.key")
 set :linked_dirs,  %w{.bundle bin tmp/pids tmp/cache tmp/sockets}
 # set :linked_dirs, %w{.bundle}
 
-# Rake::Task["deploy:assets:backup_manifest"].clear_actions
+Rake::Task["deploy:assets:backup_manifest"].clear_actions
 
 
 namespace :puma do
