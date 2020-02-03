@@ -37,7 +37,7 @@ set :linked_files, %w{config/database.yml}
 set :linked_files, fetch(:linked_files, []).push("config/master.key")
 set :linked_dirs,  %w{bin tmp/pids tmp/cache tmp/sockets}
 # set :linked_dirs, %w{.bundle}
-set :assets_prefix, 'packs'
+# set :assets_prefix, 'packs'
 
 # Rake::Task["deploy:assets:backup_manifest"].clear_actions
 
@@ -82,7 +82,8 @@ namespace :deploy do
   end
 
   before :starting,     :check_revision
-  after  :finishing,    :compile_assets
+  after 'deploy:updated', 'assets:precompile'
+  # after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
 end

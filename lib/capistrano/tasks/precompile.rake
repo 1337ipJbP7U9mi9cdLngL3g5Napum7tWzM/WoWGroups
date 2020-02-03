@@ -3,7 +3,7 @@ namespace :assets do
   desc 'Precompile assets locally and then rsync to web servers'
   task :precompile do
     run_locally do
-      with rails_env: stage_of_env do
+      with rails_env: 'production' do
         execute :bundle, 'exec rake assets:precompile'
       end
     end
@@ -23,6 +23,3 @@ namespace :assets do
     end
   end
 end
-
-# config/deploy.rb
-after 'deploy:updated', 'assets:precompile'
