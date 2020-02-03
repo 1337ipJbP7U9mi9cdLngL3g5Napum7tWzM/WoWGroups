@@ -8,7 +8,7 @@ default: &default
 production:
   <<: *default
   database: WoWGroups_production
-  password: Rails.application.credentials.postgresql_password
+  password: <%= Rails.application.credentials.postgresql_password %>
 
 development:
   <<: *default
