@@ -14,7 +14,7 @@ class HomeController < ApplicationController
   private
 
   def js_pack_tag
-    @js_pack_tag = {js: 'home_page'}
+    @js_pack_tag = {js: 'home_page', css: 'home_page'}
   end
 
 end

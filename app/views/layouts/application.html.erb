@@ -9,6 +9,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <% if @js_pack_tag %>
+      <%= stylesheet_pack_tag @js_pack_tag[:css], 'data-turbolinks-track': 'reload', async: true %>
       <%= javascript_pack_tag @js_pack_tag[:js], 'data-turbolinks-track': 'reload', async: true %>
     <% end %>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>

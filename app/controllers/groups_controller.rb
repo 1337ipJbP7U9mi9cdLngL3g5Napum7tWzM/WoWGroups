@@ -73,7 +73,7 @@ class GroupsController < ApplicationController
   private
 
   def js_pack_tag(pack_tag_name)
-    @js_pack_tag = {js: pack_tag_name}
+    @js_pack_tag = {js: pack_tag_name, css: pack_tag_name}
   end
 
   def group_params(group)
