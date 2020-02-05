@@ -41,6 +41,8 @@ set :linked_dirs,  %w{bin tmp/pids tmp/cache tmp/sockets public/packs}
 
 # Rake::Task["deploy:assets:backup_manifest"].clear_actions
 
+set :nginx_server_name, "worldofwarcraftgroups.com www.worldofwarcraftgroups.com"
+
 
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
