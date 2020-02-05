@@ -82,7 +82,7 @@ namespace :deploy do
   end
 
   before :starting,     :check_revision
-  after 'deploy:updated', 'assets:precompile'
+  # after 'deploy:updated', 'assets:precompile'
   # after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
