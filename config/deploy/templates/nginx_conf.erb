@@ -22,7 +22,7 @@ server {
 server {
 <% if fetch(:nginx_use_ssl) -%>
   listen 443;
-  listen [::]:443
+  listen [::]:443;
   ssl on;
 <% if fetch(:nginx_ssl_certificate) -%>
   ssl_certificate <%= fetch(:nginx_ssl_certificate) %>;
