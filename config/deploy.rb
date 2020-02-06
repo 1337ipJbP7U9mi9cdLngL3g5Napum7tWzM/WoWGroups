@@ -41,7 +41,10 @@ set :linked_dirs,  %w{bin tmp/pids tmp/cache tmp/sockets public/packs}
 
 # Rake::Task["deploy:assets:backup_manifest"].clear_actions
 
+set :nginx_use_ssl, true
 set :nginx_server_name, "worldofwarcraftgroups.com www.worldofwarcraftgroups.com"
+set :nginx_ssl_certificate, "/etc/letsencrypt/live/worldofwarcraftgroups.com/fullchain.pem"
+set :nginx_ssl_certificate_key, "/etc/letsencrypt/live/worldofwarcraftgroups.com/privkey.pem"
 
 
 namespace :puma do
