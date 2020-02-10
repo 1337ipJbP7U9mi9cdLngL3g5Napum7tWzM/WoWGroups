@@ -33,7 +33,7 @@ set :puma_init_active_record, true  # Change to true if using ActiveRecord
 set :keep_releases, 2
 
 ## Linked Files & Directories (Default None):
-set :linked_files, %w{config/database.yml config/boot.rb}
+set :linked_files, %w{config/database.yml config/boot.rb config/application.rb}
 set :linked_files, fetch(:linked_files, []).push("config/master.key")
 set :linked_dirs,  %w{bin tmp/pids tmp/cache tmp/sockets public/packs ./bundle}
 # set :linked_dirs, %w{.bundle}
