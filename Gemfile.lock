@@ -276,7 +276,7 @@ DEPENDENCIES
   tzinfo-data
   watir (~> 6.16, >= 6.16.5)
   web-console (>= 3.3.0)
-  webdrivers
+  webdrivers (~> 4.0)
   webpacker (~> 4.0)
 
 RUBY VERSION
