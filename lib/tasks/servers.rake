@@ -1,5 +1,6 @@
 namespace :servers do
   task us: :environment do
+    require 'webdrivers/chromedriver'
     require 'watir'
 
     # "https://worldofwarcraft.com/en-us/game/status/classic-eu",

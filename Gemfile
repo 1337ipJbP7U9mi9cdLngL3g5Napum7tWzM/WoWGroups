@@ -23,6 +23,7 @@ gem 'omniauth-bnet', '~> 2.0'
 
 # gem 'mechanize', '~> 2.7', '>= 2.7.4'
 gem 'watir', '~> 6.16', '>= 6.16.5'
+gem 'webdrivers', '~> 4.0'
 
 gem 'pg'
 # Use Redis adapter to run Action Cable in production
