@@ -17,7 +17,7 @@ namespace :servers do
     scraped_servers.each do |server|
       puts server.text
       unless Server.exists?(name: server.text)
-        Server.create(name: server.text, region_id: 4 )
+        Server.create(name: server.text, region_id: 1 )
       end
     end
 
@@ -36,7 +36,7 @@ namespace :servers do
     scraped_servers.each do |server|
       puts server.text
       unless Server.exists?(name: server.text)
-        Server.create(name: server.text, region_id: 4 )
+        Server.create(name: server.text, region_id: 2 )
       end
     end
 
@@ -55,7 +55,7 @@ namespace :servers do
     scraped_servers.each do |server|
       puts server.text
       unless Server.exists?(name: server.text)
-        Server.create(name: server.text, region_id: 4 )
+        Server.create(name: server.text, region_id: 3 )
       end
     end
 
