@@ -9,7 +9,7 @@ namespace :servers do
     url = "https://worldofwarcraft.com/en-us/game/status/classic-us"
     regions = Region.all
 
-    browser = Watir::Browser.new(:chrome, {:chromeOptions => {:args => ['--headless', '--window-size=1200x600', '--no-sandbox', "--disable-dev-shm-usage"]}})
+    browser = Watir::Browser.new(:chrome, {:chromeOptions => {:args => ['--no-sandbox', '--headless', '--window-size=1200x600', "--disable-dev-shm-usage", '--remote-debugging-port=9222']}})
     i = 0
     browser.goto(url)
     puts url
