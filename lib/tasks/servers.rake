@@ -81,4 +81,8 @@ namespace :servers do
 
     i += 1
   end
+
+  task seed: :environment do
+
+  end
 end
