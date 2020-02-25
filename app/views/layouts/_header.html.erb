@@ -1,10 +1,19 @@
-<header class="">
-  <div class="container">
+<header class="header">
+  <div class="logo">
+    World<span>of</span>WarcraftGroups
+  </div>
+  <div class="user">
     <% if current_user %>
-      <h4><%= current_user.username%></h4>
-      <a href="/logout">Logout</a>
+      <span class="current_user"><%= current_user.username%></span>
+      <%= link_to user_path(current_user), class: "user_info" do %>
+        <span>User Info</span>
+        <span class="icon is-small">
+          <i class="fas fa-chevron-circle-down"></i>
+        </span>
+      <% end %>
+      <a class="log_out" href="/logout">Logout</a>
     <% else %>
-      <a href="/auth/bnet">Sign In</a>
+      <a class="sign_in" href="/auth/bnet">Sign In</a>
     <% end %>
   </div>
 </header>

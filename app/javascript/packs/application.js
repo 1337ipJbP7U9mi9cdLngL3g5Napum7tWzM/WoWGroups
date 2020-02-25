@@ -16,6 +16,8 @@ require("channels")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
+require.context('../fonts/', true, /\.(eot|ttf|woff|woff2|otf)$/i)
+
 import "controllers"
 import 'css/application'
 

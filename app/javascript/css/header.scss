@@ -1,0 +1,67 @@
+@import 'mixins/wow_text';
+
+
+.header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  font-family: 'Odibee Sans', cursive;
+
+  .logo {
+    color: rgb(248, 183, 0);
+    flex: 1;
+    font-family: lifecraft;
+    font-size: 2em;
+    margin-left: 1em;
+
+    span {
+      font-size: .75em;
+      margin-left: 0.1em;
+    }
+  }
+
+  .user {
+    display: flex;
+    flex: 1;
+    font-size: 1.5em;
+    justify-content: flex-end;
+    margin-right: 1em;
+
+    .current_user {
+      margin-right: 1em;
+      @include wowtext;
+    }
+
+    .user_info {
+      display: flex;
+      align-items: center;
+      position: relative;
+      margin-right: 1em;
+
+      &:hover {
+        @include wowtext;
+        cursor: pointer;
+      }
+
+      span:first-child {
+        margin-right: 0.2em;
+      }
+    }
+
+    .sign_in {
+
+      &:hover {
+        @include wowtext;
+      }
+    }
+
+    .log_out {
+      color: #d92b2b;
+
+      &:hover {
+        color: rgb(248, 183, 0);
+      }
+    }
+  }
+}

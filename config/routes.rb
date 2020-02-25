@@ -11,10 +11,10 @@ Rails.application.routes.draw do
 
   resources :groups do
     post 'accept'
-    get 'deny'
-    get 'reserve' 
+    post 'deny'
+    post 'reserve'
   end
-  resources :users, only: [:edit, :update]
+  resources :users, only: [:show, :edit, :update]
   resources :requests, only: [:create, :update]
 
 end
