@@ -2,7 +2,7 @@
   <div data-controller="home-page--servers-select">
 
     <div class="columns">
-      <div class="field column is-half has-addons has-addons-centered">
+      <div class="field column is-third has-addons has-addons-centered">
         <p class="control has-icons-left">
           <span class="select">
             <select name="region" id="region_id"
@@ -21,7 +21,7 @@
         </p>
       </div>
 
-      <div class="field column is-half has-addons has-addons-centered">
+      <div class="field column is-third has-addons has-addons-centered">
         <p class="control has-icons-left">
           <span class="select">
             <select name="server" id="server_id"
@@ -35,10 +35,10 @@
           </span>
         </p>
       </div>
-    </div>
 
-    <div class="control">
-      <%= submit_tag "Submit", class: "button is-primary" %>
+      <div class="control column is-third has-text-centered">
+        <%= submit_tag "Submit", class: "button is-primary" %>
+      </div>
     </div>
 
   </div>

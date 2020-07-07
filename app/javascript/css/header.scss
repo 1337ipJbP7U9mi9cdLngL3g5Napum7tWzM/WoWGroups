@@ -9,11 +9,12 @@
   font-family: 'Odibee Sans', cursive;
 
   .logo {
-    color: rgb(248, 183, 0);
+    // color: rgb(248, 183, 0);
     flex: 1;
     font-family: lifecraft;
     font-size: 2em;
     margin-left: 1em;
+    @include wowtext
 
     span {
       font-size: .75em;
