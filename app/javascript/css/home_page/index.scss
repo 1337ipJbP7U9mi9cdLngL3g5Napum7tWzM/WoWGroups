@@ -12,12 +12,19 @@ main {
   border-bottom-color: rgba(221,221,221,0.1);
   border-bottom-style: solid;
   border-bottom-width: 1px;
+  font-family: 'Fondamento', cursive;
   width: 100%;
 
   &:hover {
     background-color: rgba(221,221,221,0.1);
     color: #fff;
+    cursor: pointer;
   }
+}
+
+.test-groups-header {
+  font-size: 175%;
+  margin-bottom: 20px;
 }
 
 .tutorial {
@@ -34,15 +41,6 @@ main {
   .corrupted-blood {
     @include corruptedblood;
   }
-}
-
-.group {
-  font-family: 'Fondamento', cursive;
-}
-
-.test-groups-header {
-  font-size: 175%;
-  margin-bottom: 20px;
 }
 
 .server-region-selection {

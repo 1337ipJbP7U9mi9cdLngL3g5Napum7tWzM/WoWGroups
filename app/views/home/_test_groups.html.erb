@@ -36,3 +36,42 @@
     full run!
   </div>
 </div>
+
+<div class="group columns">
+  <div class="group__time column is-1 has-text-centered">
+    <%= time_ago_in_words(Time.new - 4.hour) %>
+  </div>
+  <div class="column columns is-3 has-text-centered">
+    <div class="group__server column">
+      <%= Server.third.name %>
+    </div>
+    <div class="group__type column">
+      Raid
+    </div>
+    <div class="group__faction column">
+      Alliance
+    </div>
+  </div>
+
+  <div class="column columns is-2">
+    <div class="group__tanks column has-text-centered">
+      <p>Tanks:</p>
+      2
+    </div>
+    <div class="group__heals column has-text-centered">
+      <p>Heals:</p>
+      7
+    </div>
+    <div class="group__dps column has-text-centered">
+      <p>DPS:</p>
+      10
+    </div>
+  </div>
+
+  <div class="group__description column has-text-centered">
+    Setting up a raid for Onyxia. Don't come if you aren't willing to wait for
+    the whole raid or are not attuned. Bag is already taken if it drops. Ideally
+    Looking for more mage dps! Looking for a warrior tank. Looking for 2 priest
+    heals!
+  </div>
+</div>
