@@ -1,0 +1,38 @@
+<h5 class="has-text-centered test-groups-header">Here are some test groups:</h5>
+
+<div class="group columns">
+  <div class="group__time column is-1 has-text-centered">
+    <%= time_ago_in_words(Time.new - 1.hour) %>
+  </div>
+  <div class="column columns is-3 has-text-centered">
+    <div class="group__server column">
+      <%= Server.first.name %>
+    </div>
+    <div class="group__type column">
+      Dungeon
+    </div>
+    <div class="group__faction column">
+      Alliance
+    </div>
+  </div>
+
+  <div class="column columns is-2">
+    <div class="group__tanks column has-text-centered">
+      <p>Tanks:</p>
+      1
+    </div>
+    <div class="group__heals column has-text-centered">
+      <p>Heals:</p>
+      1
+    </div>
+    <div class="group__dps column has-text-centered">
+      <p>DPS:</p>
+      2
+    </div>
+  </div>
+
+  <div class="group__description column has-text-centered">
+    Looking for a group to get into deadmines! Tank/Healer LF2M Dps. Looking to do
+    full run!
+  </div>
+</div>

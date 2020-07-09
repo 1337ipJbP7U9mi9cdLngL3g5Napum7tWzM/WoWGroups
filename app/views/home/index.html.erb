@@ -1,53 +1,18 @@
-<div class="server-region-selection">
-  <%= render 'servers/server_region_pick' %>
-</div>
-
-<section class="section">
-  <%= render 'home/tutorial' %>
-</section>
-
 <main class="section groups"
   data-controller="home-page--scrollbar"
   data-action="load@window->home-page--scrollbar#scrollbarStart">
-    <% @groups.each do |group| %>
-    <div class="group columns">
-      <div class="group__time column is-1 has-text-centered">
-        <%= time_ago_in_words(group.time) %>
-      </div>
-      <div class="column columns is-3 has-text-centered">
-        <div class="group__server column">
-          <%= Server.find(group.server_id).name %>
-        </div>
-        <div class="group__type column">
-          <%= group.group_type.capitalize %>
-        </div>
-        <div class="group__faction column">
-          <% if group.faction == 0 %>
-          Alliance
-          <% else %>
-          Horde
-          <% end %>
-        </div>
-      </div>
 
-      <div class="column columns is-2">
-        <div class="group__tanks column has-text-centered">
-          <p>Tanks:</p>
-          <%= group.group_tanks %>
-        </div>
-        <div class="group__heals column has-text-centered">
-          <p>Heals:</p>
-          <%= group.group_heals %>
-        </div>
-        <div class="group__dps column has-text-centered">
-          <p>DPS:</p>
-          <%= group.group_dps %>
-        </div>
-      </div>
+  <div class="server-region-selection">
+    <%= render 'servers/server_region_pick' %>
+  </div>
 
-      <div class="group__description column has-text-centered">
-        <%= group.short_description %>
-      </div>
-    </div>
-    <% end %>
+  <section class="section">
+    <%= render 'home/tutorial' %>
+  </section>
+
+  <% if @groups.count > 0 %>
+    <%= render 'home/last_made_groups' %>
+  <% else %>
+    <%= render 'home/test_groups' %>
+  <% end %>
 </main>
