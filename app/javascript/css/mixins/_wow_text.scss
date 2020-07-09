@@ -6,3 +6,12 @@
   background-size: 1em 2.5em;
   color:#f8b700;
 }
+
+@mixin corruptedblood {
+  transition: all .25s cubic-bezier(.23,1,.32,1) 0s;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: -webkit-linear-gradient(top, #ef0000, #e23333 19%, #f02828 30%, #ffa3a3 43%, #ff3e3e 50%, #ababab 55%, #fff);
+  background-size: 1em 2.5em;
+  color:#f80000;
+}

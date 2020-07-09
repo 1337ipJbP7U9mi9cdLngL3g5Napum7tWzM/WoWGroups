@@ -1,3 +1,5 @@
+@import '../mixins/wow_text';
+
 main {
   flex-grow: 1;
 }
@@ -15,6 +17,22 @@ main {
   &:hover {
     background-color: rgba(221,221,221,0.1);
     color: #fff;
+  }
+}
+
+.tutorial {
+  h4 {
+    @include wowtext;
+    font-size: 170%;
+  }
+
+  & > p {
+    font-size: 135%;
+    font-family: 'Fondamento', cursive;
+  }
+
+  .corrupted-blood {
+    @include corruptedblood;
   }
 }
 
